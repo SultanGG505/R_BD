@@ -23,5 +23,19 @@ for(i in 1:n) {
 
 DF <- transform(
   DF, 'Salary'= ifelse(BirthYear>=1975, (log(2007-EmployYear) + 1) * 8000,  (log2(2007-EmployYear) + 1) * 8000))
-
 DF
+
+count <- 0
+count <- which(DF[, 'Salary'] > 15000 )
+length(count)
+
+# for(i in 1:n) {
+#   if (DF[i, 'Salary'] > 15000 ) {
+#     count = count + 1
+#   }
+# }
+# count
+
+
+
+
