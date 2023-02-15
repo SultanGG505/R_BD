@@ -15,19 +15,31 @@
 n <- 20
 BirthDate <- c(sample(1960:1985 ,n,replace = TRUE))
 names <- c('Султан','Артём','Валя','Иван','Олег','Константин','Арсений','Анна','Илья')
-DF <- data.frame('nrow'=1:n, 'name'=sample(names, n, replace=TRUE), 'BirthYear'=BirthDate, 'EmployYear' = integer(20) )
+DF <- data.frame('nrow'=1:n, 'name'=sample(names, n, replace=TRUE),
+                 'BirthYear'=BirthDate, 'EmployYear' = integer(20))
 
 for(i in 1:n) {
   DF[i, 'EmployYear'] <- sample((DF[i, 'BirthYear']+18):2006,1)
 }
 
 DF <- transform(
-  DF, 'Salary'= ifelse(BirthYear>=1975, (log(2007-EmployYear) + 1) * 8000,  (log2(2007-EmployYear) + 1) * 8000))
+  DF, 'Salary'= ifelse(BirthYear>=1975, (log(2007-EmployYear) + 1) * 8000,
+                       (log2(2007-EmployYear) + 1) * 8000))
 DF
 
 count <- 0
 count <- which(DF[, 'Salary'] > 15000 )
 length(count)
+
+vec = double(n)
+cur = 2023
+for(i in 1:n) {
+  vec[i] <- ifelse('BirthYear'>=1975, (log(cur - DF[i,'EmployYear']) + 1) * 8000,
+                            (log2(cur - DF[i,'EmployYear']) + 1) * 8000)
+  
+}
+
+vec * 0.13
 
 # for(i in 1:n) {
 #   if (DF[i, 'Salary'] > 15000 ) {
