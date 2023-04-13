@@ -50,7 +50,7 @@ library(ggplot2)
 pl_df <- data.frame(x=colnames(df[, num_idx]), y=means)
 # пропуск строк с NA
 pl_df <- pl_df[complete.cases(pl_df), ]
-perf <-ggplot(pl_df, aes(x, y, fill = x)) +
+perf <-ggplot(pl_df, aes(x, y, fill = y)) +
   geom_bar(stat="identity", show.legend = F)
 perf
 
