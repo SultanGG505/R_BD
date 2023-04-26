@@ -38,111 +38,112 @@ rm(i, str_tmp, nodes, url, df_tmp)
 pl_col <- c('red', 'green', 'gold', '#BA43B4', 'blue')
 pl_countries <- c('Канада', 'США', 'Турция', 'Греция', 'Дания')
 
-plot(df_Netherlands$Year, df_Netherlands$`Quality of Life Index`, type="o", 
+plot(df_Canada$Year, df_Canada$`Quality of Life Index`, type="o", 
      pch=19, col=pl_col[1], xaxt="n", ylim = c(-10, 300),
      xlab="Год", ylab="Значение", main="Индекс уровня жизни")
-lines(df_Switzerland$Year, df_Switzerland$`Quality of Life Index`, type="o", pch=19, col=pl_col[2])
-lines(df_Croatia$Year, df_Croatia$`Quality of Life Index`, type="o", pch=19, col=pl_col[3])
-lines(`df_United Arab Emirates`$Year, `df_United Arab Emirates`$`Quality of Life Index`,
+lines(`df_United States`$Year, `df_United States`$`Quality of Life Index`, type="o", pch=19, col=pl_col[2])
+lines(df_Turkey$Year, df_Turkey$`Quality of Life Index`, type="o", pch=19, col=pl_col[3])
+lines(df_Greece$Year, df_Greece$`Quality of Life Index`,
       type="o", pch=19, col=pl_col[4])
-lines(df_Egypt$Year, df_Egypt$`Quality of Life Index`, type="o", pch=19, col=pl_col[5])
-axis(side=1, at=df_Netherlands$Year)
+lines(df_Denmark$Year, df_Denmark$`Quality of Life Index`, type="o", pch=19, col=pl_col[5])
+axis(side=1, at=df_Canada$Year)
 legend('topright', cex = 0.5, pl_countries, fill=pl_col)
 
 
-plot(df_Netherlands$Year, df_Netherlands$`Purchasing Power Index`, type="o", 
+
+plot(df_Canada$Year, df_Canada$`Purchasing Power Index`, type="o", 
      pch=19, col=pl_col[1], xaxt="n", ylim = c(0, 200),
      xlab="Год", ylab="Значение", main="Индекс покупательной способности")
-lines(df_Switzerland$Year, df_Switzerland$`Purchasing Power Index`, type="o", pch=19, col=pl_col[2])
-lines(df_Croatia$Year, df_Croatia$`Purchasing Power Index`, type="o", pch=19, col=pl_col[3])
-lines(`df_United Arab Emirates`$Year, `df_United Arab Emirates`$`Purchasing Power Index`,
+lines(`df_United States`$Year, `df_United States`$`Purchasing Power Index`, type="o", pch=19, col=pl_col[2])
+lines(df_Turkey$Year, df_Turkey$`Purchasing Power Index`, type="o", pch=19, col=pl_col[3])
+lines(df_Greece$Year, df_Greece$`Purchasing Power Index`,
       type="o", pch=19, col=pl_col[4])
-lines(df_Egypt$Year, df_Egypt$`Purchasing Power Index`, type="o", pch=19, col=pl_col[5])
-axis(side=1, at=df_Netherlands$Year)
+lines(df_Denmark$Year, df_Denmark$`Purchasing Power Index`, type="o", pch=19, col=pl_col[5])
+axis(side=1, at=df_Canada$Year)
 legend('topright', cex = 0.5, pl_countries, fill=pl_col)
 
 
-plot(df_Netherlands$Year, df_Netherlands$`Safety Index`, type="o", 
+plot(df_Canada$Year, df_Canada$`Safety Index`, type="o", 
      pch=19, col=pl_col[1], xaxt="n", ylim = c(40, 110),
      xlab="Год", ylab="Значение", main="Индекс безопасности")
-lines(df_Switzerland$Year, df_Switzerland$`Safety Index`, type="o", pch=19, col=pl_col[2])
-lines(df_Croatia$Year, df_Croatia$`Safety Index`, type="o", pch=19, col=pl_col[3])
-lines(`df_United Arab Emirates`$Year, `df_United Arab Emirates`$`Safety Index`,
+lines(`df_United States`$Year, `df_United States`$`Safety Index`, type="o", pch=19, col=pl_col[2])
+lines(df_Turkey$Year, df_Turkey$`Safety Index`, type="o", pch=19, col=pl_col[3])
+lines(df_Greece$Year, df_Greece$`Safety Index`,
       type="o", pch=19, col=pl_col[4])
-lines(df_Egypt$Year, df_Egypt$`Safety Index`, type="o", pch=19, col=pl_col[5])
-axis(side=1, at=df_Netherlands$Year)
+lines(df_Denmark$Year, df_Denmark$`Safety Index`, type="o", pch=19, col=pl_col[5])
+axis(side=1, at=df_Canada$Year)
 legend('topright', cex = 0.5, pl_countries, fill=pl_col)
 
 
-plot(df_Netherlands$Year, df_Netherlands$`Health Care Index`, type="o", 
+plot(df_Canada$Year, df_Canada$`Health Care Index`, type="o", 
      pch=19, col=pl_col[1], xaxt="n", ylim = c(40, 110),
      xlab="Год", ylab="Значение", main="Индекс здравоохранения")
-lines(df_Switzerland$Year, df_Switzerland$`Health Care Index`, type="o", pch=19, col=pl_col[2])
-lines(df_Croatia$Year, df_Croatia$`Health Care Index`, type="o", pch=19, col=pl_col[3])
-lines(`df_United Arab Emirates`$Year, `df_United Arab Emirates`$`Health Care Index`,
+lines(`df_United States`$Year, `df_United States`$`Health Care Index`, type="o", pch=19, col=pl_col[2])
+lines(df_Turkey$Year, df_Turkey$`Health Care Index`, type="o", pch=19, col=pl_col[3])
+lines(df_Greece$Year, df_Greece$`Health Care Index`,
       type="o", pch=19, col=pl_col[4])
-lines(df_Egypt$Year, df_Egypt$`Health Care Index`, type="o", pch=19, col=pl_col[5])
-axis(side=1, at=df_Netherlands$Year)
+lines(df_Denmark$Year, df_Denmark$`Health Care Index`, type="o", pch=19, col=pl_col[5])
+axis(side=1, at=df_Canada$Year)
 legend('topright', cex = 0.6, pl_countries, fill=pl_col)
 
 
-plot(df_Netherlands$Year, df_Netherlands$`Cost of Living Index`, type="o", 
+plot(df_Canada$Year, df_Canada$`Cost of Living Index`, type="o", 
      pch=19, col=pl_col[1], xaxt="n", ylim = c(20, 210),
      xlab="Год", ylab="Значение", main="Индекс стоимости проживания")
-lines(df_Switzerland$Year, df_Switzerland$`Cost of Living Index`, type="o", pch=19, col=pl_col[2])
-lines(df_Croatia$Year, df_Croatia$`Cost of Living Index`, type="o", pch=19, col=pl_col[3])
-lines(`df_United Arab Emirates`$Year, `df_United Arab Emirates`$`Cost of Living Index`,
+lines(`df_United States`$Year, `df_United States`$`Cost of Living Index`, type="o", pch=19, col=pl_col[2])
+lines(df_Turkey$Year, df_Turkey$`Cost of Living Index`, type="o", pch=19, col=pl_col[3])
+lines(df_Greece$Year, df_Greece$`Cost of Living Index`,
       type="o", pch=19, col=pl_col[4])
-lines(df_Egypt$Year, df_Egypt$`Cost of Living Index`, type="o", pch=19, col=pl_col[5])
-axis(side=1, at=df_Netherlands$Year)
+lines(df_Denmark$Year, df_Denmark$`Cost of Living Index`, type="o", pch=19, col=pl_col[5])
+axis(side=1, at=df_Canada$Year)
 legend('topright', cex = 0.6, pl_countries, fill=pl_col)
 
 
-plot(df_Netherlands$Year, df_Netherlands$`Property Price to Income Ratio`, type="o", 
+plot(df_Canada$Year, df_Canada$`Property Price to Income Ratio`, type="o", 
      pch=19, col=pl_col[1], xaxt="n", ylim = c(4, 21),
      xlab="Год", ylab="Значение", main="Отношение стоимости недвижимости к заработной плате")
-lines(df_Switzerland$Year, df_Switzerland$`Property Price to Income Ratio`, type="o", pch=19, col=pl_col[2])
-lines(df_Croatia$Year, df_Croatia$`Property Price to Income Ratio`, type="o", pch=19, col=pl_col[3])
-lines(`df_United Arab Emirates`$Year, `df_United Arab Emirates`$`Property Price to Income Ratio`,
+lines(`df_United States`$Year, `df_United States`$`Property Price to Income Ratio`, type="o", pch=19, col=pl_col[2])
+lines(df_Turkey$Year, df_Turkey$`Property Price to Income Ratio`, type="o", pch=19, col=pl_col[3])
+lines(df_Greece$Year, df_Greece$`Property Price to Income Ratio`,
       type="o", pch=19, col=pl_col[4])
-lines(df_Egypt$Year, df_Egypt$`Property Price to Income Ratio`, type="o", pch=19, col=pl_col[5])
-axis(side=1, at=df_Netherlands$Year)
+lines(df_Denmark$Year, df_Denmark$`Property Price to Income Ratio`, type="o", pch=19, col=pl_col[5])
+axis(side=1, at=df_Canada$Year)
 legend('topright', cex = 0.6, pl_countries, fill=pl_col)
 
 
-plot(df_Netherlands$Year, df_Netherlands$`Traffic Commute Time Index`, type="o", 
+plot(df_Canada$Year, df_Canada$`Traffic Commute Time Index`, type="o", 
      pch=19, col=pl_col[1], xaxt="n", ylim = c(25, 70),
      xlab="Год", ylab="Значение", main="Индекс времени в дороге")
-lines(df_Switzerland$Year, df_Switzerland$`Traffic Commute Time Index`, type="o", pch=19, col=pl_col[2])
-lines(df_Croatia$Year, df_Croatia$`Traffic Commute Time Index`, type="o", pch=19, col=pl_col[3])
-lines(`df_United Arab Emirates`$Year, `df_United Arab Emirates`$`Traffic Commute Time Index`,
+lines(`df_United States`$Year, `df_United States`$`Traffic Commute Time Index`, type="o", pch=19, col=pl_col[2])
+lines(df_Turkey$Year, df_Turkey$`Traffic Commute Time Index`, type="o", pch=19, col=pl_col[3])
+lines(df_Greece$Year, df_Greece$`Traffic Commute Time Index`,
       type="o", pch=19, col=pl_col[4])
-lines(df_Egypt$Year, df_Egypt$`Traffic Commute Time Index`, type="o", pch=19, col=pl_col[5])
-axis(side=1, at=df_Netherlands$Year)
+lines(df_Denmark$Year, df_Denmark$`Traffic Commute Time Index`, type="o", pch=19, col=pl_col[5])
+axis(side=1, at=df_Canada$Year)
 legend('topright', cex = 0.6, pl_countries, fill=pl_col)
 
 
-plot(df_Netherlands$Year, df_Netherlands$`Pollution Index`, type="o", 
+plot(df_Canada$Year, df_Canada$`Pollution Index`, type="o", 
      pch=19, col=pl_col[1], xaxt="n", ylim = c(20, 115),
      xlab="Год", ylab="Значение", main="Индекс уровня загрязнения")
-lines(df_Switzerland$Year, df_Switzerland$`Pollution Index`, type="o", pch=19, col=pl_col[2])
-lines(df_Croatia$Year, df_Croatia$`Pollution Index`, type="o", pch=19, col=pl_col[3])
-lines(`df_United Arab Emirates`$Year, `df_United Arab Emirates`$`Pollution Index`,
+lines(`df_United States`$Year, `df_United States`$`Pollution Index`, type="o", pch=19, col=pl_col[2])
+lines(df_Turkey$Year, df_Turkey$`Pollution Index`, type="o", pch=19, col=pl_col[3])
+lines(df_Greece$Year, df_Greece$`Pollution Index`,
       type="o", pch=19, col=pl_col[4])
-lines(df_Egypt$Year, df_Egypt$`Pollution Index`, type="o", pch=19, col=pl_col[5])
-axis(side=1, at=df_Netherlands$Year)
+lines(df_Denmark$Year, df_Denmark$`Pollution Index`, type="o", pch=19, col=pl_col[5])
+axis(side=1, at=df_Canada$Year)
 legend('topright', cex = 0.5, pl_countries, fill=pl_col)
 
 
-plot(df_Netherlands$Year, df_Netherlands$`Climate Index`, type="o", 
+plot(df_Canada$Year, df_Canada$`Climate Index`, type="o", 
      pch=19, col=pl_col[1], xaxt="n", ylim = c(5, 135),
      xlab="Год", ylab="Значение", main="Индекс качества климата")
-lines(df_Switzerland$Year, df_Switzerland$`Climate Index`, type="o", pch=19, col=pl_col[2])
-lines(df_Croatia$Year, df_Croatia$`Climate Index`, type="o", pch=19, col=pl_col[3])
-lines(`df_United Arab Emirates`$Year, `df_United Arab Emirates`$`Climate Index`,
+lines(`df_United States`$Year, `df_United States`$`Climate Index`, type="o", pch=19, col=pl_col[2])
+lines(df_Turkey$Year, df_Turkey$`Climate Index`, type="o", pch=19, col=pl_col[3])
+lines(df_Greece$Year, df_Greece$`Climate Index`,
       type="o", pch=19, col=pl_col[4])
-lines(df_Egypt$Year, df_Egypt$`Climate Index`, type="o", pch=19, col=pl_col[5])
-axis(side=1, at=df_Netherlands$Year)
+lines(df_Denmark$Year, df_Denmark$`Climate Index`, type="o", pch=19, col=pl_col[5])
+axis(side=1, at=df_Canada$Year)
 legend('topright', cex = 0.5, pl_countries, fill=pl_col)
 
 
