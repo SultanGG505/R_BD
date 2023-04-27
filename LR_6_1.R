@@ -1,4 +1,4 @@
-
+library(cluster)
 library(factoextra)
 library(ggplot2) # для визуализации данных
 library(dplyr) # для манипуляций с данными
@@ -44,7 +44,7 @@ ggplot(df, aes(x=math_score, y=reading_score)) +
   labs(title="Диаграмма рассеяния для оценок по математике и чтению", x="Оценка по математике", y="Оценка по чтению")
 
 # Выбираем переменные для кластеризации
-cluster_vars <- c("race_ethnicity", "parental_level_of_education", "math_score", "reading_score", "writing_score")
+cluster_vars <- c("math_score", "reading_score", "writing_score")
 
 # Создаем матрицу расстояний на основе выбранных переменных
 d <- dist(df[, cluster_vars], method = "euclidean")
@@ -56,26 +56,40 @@ hc <- hclust(d, method = "complete")
 plot(hc, cex = 0.6, hang = -1, labels = df$race_ethnicity, main = "Dendrogram of StudentsPerformance data")
 
 # Выбираем переменные для кластеризации
-cluster_vars <- c("race_ethnicity", "parental_level_of_education", "math_score", "reading_score", "writing_score")
+cluster_vars <- c("math_score", "reading_score", "writing_score")
 
 # Создаем матрицу расстояний на основе выбранных переменных
 d <- dist(df[, cluster_vars], method = "euclidean")
 
 # Выполняем кластеризацию методом "полного" (complete) сцепления
 hc <- hclust(d, method = "complete")
+plot(hc, labels=F)
+rect.hclust(hc,k = 5, border="red")
 
 # Строим график для метода локтя
-wss <- (nrow(df[, cluster_vars]) - 1) * sum(apply(df[, cluster_vars], 2, var))
-for (i in 2:10) wss[i] <- sum(kmeans(d, centers = i)$withinss)
-plot(1:10, wss, type = "b", xlab = "Number of clusters", ylab = "Within groups sum of squares")
 
-rect.hclust(hc,k = 4, border="red")
+
+
+# метод локтя
+fviz_nbclust(df[6:8], kmeans, method = 'wss')
+
+
 
 plot(1:(nrow(df)-1), hc$height, type='b', main='Каменная осыпь')
   
-# df$average_score <- (df$math_score + df$reading_score + df$writing_score)/3
-# library(ggplot2)
-# ggplot(df, aes(x = parental_level_of_education, y = average_score)) +
-#   geom_boxplot(fill = "lightblue") +
-#   labs(title = "Зависимость между образованием родителей и успеваемостью студентов",
-#        x = "Образование родителей", y = "Средняя оценка")
+df$average_score <- (df$math_score + df$reading_score + df$writing_score)/3
+library(ggplot2)
+ggplot(df, aes(x = parental_level_of_education, y = average_score)) +
+  geom_boxplot(fill = "lightblue") +
+  labs(title = "Зависимость между образованием родителей и успеваемостью студентов",
+       x = "Образование родителей", y = "Средняя оценка")
+
+library (lattice)
+
+clusters <- cutree(hc, k = 5)
+
+xyplot(math_score~reading_score, group = clusters, data = df, auto.key = TRUE, col = rainbow(5))
+
+cloud(math_score~reading_score*writing_score, group = clusters,  data = df, 
+      auto.key = TRUE, col = rainbow(5))
+
