@@ -43,6 +43,10 @@ ggplot(df, aes(x=math_score, y=reading_score)) +
   geom_point(color="#69b3a2") +
   labs(title="Диаграмма рассеяния для оценок по математике и чтению", x="Оценка по математике", y="Оценка по чтению")
 
+ggplot(df, aes(x=parental_level_of_education, y=(math_score+reading_score+writing_score)/3)) +
+  geom_point() +
+  labs(x="Образование родителей", y="Средняя оценка по всем предметам") +
+  theme_bw()
 # Выбираем переменные для кластеризации
 cluster_vars <- c("math_score", "reading_score", "writing_score")
 
@@ -61,12 +65,14 @@ cluster_vars <- c("math_score", "reading_score", "writing_score")
 # Создаем матрицу расстояний на основе выбранных переменных
 d <- dist(df[, cluster_vars], method = "euclidean")
 
+
 # Выполняем кластеризацию методом "полного" (complete) сцепления
 hc <- hclust(d, method = "complete")
 plot(hc, labels=F)
 rect.hclust(hc,k = 5, border="red")
 
 # Строим график для метода локтя
+
 
 
 
