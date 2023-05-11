@@ -13,6 +13,7 @@ colors_E = c(as.numeric(strsplit(input[N+2], " ")[[1]]))
 # Создание графа и определение цветов вершин
 g = graph.adjacency(matr_E,mode = "undirected")
 V(g)$color = colors_E
+E(g)$color = "red"
 plot(g)
 # Подсчет "плохих" мостов
 bad_bridges <- c()
@@ -23,6 +24,12 @@ for(e in E(g)){
     bad_bridges <- c(bad_bridges, as.numeric(e))
   }
 }
+colors_E = c("black", "red")
+
+edge_colors <- rep(colors_E[1], ecount(g))
+edge_colors[bad_bridges] <- colors_E[2]
+
+plot(g, edge.color = edge_colors)
 
 # Вывод результатов
 if (length(bad_bridges) > 0) {
